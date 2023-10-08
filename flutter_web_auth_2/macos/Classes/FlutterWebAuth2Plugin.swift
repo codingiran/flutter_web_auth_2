@@ -44,6 +44,9 @@ public class FlutterWebAuth2Plugin: NSObject, FlutterPlugin {
                 return
             }
             flutterResult = result
+        } else if call.method == "cleanUpDanglingCalls" {
+            // we do not keep track of old callbacks on iOS, so nothing to do here
+            result(nil)
         } else {
             result(FlutterMethodNotImplemented)
         }
